@@ -1,0 +1,53 @@
+@url = https://bc-webshop.westeurope.cloudapp.azure.com:7048/bc/api/v2.0
+@auth = Authorization: Basic Kety:uwW/XLw5L2+F1W+4LUVsoDVZas4h7qOltx7GxyGPkOs=
+
+@company = companies(fb33e5dd-3559-ed11-9567-000d3a398606)
+@toilet = https://ptsv2.com/t/ko3v2-1669812442/post
+
+
+### Sales Invoices
+get {{url}}/{{company}}/itemLedgerEntries
+{{auth}}
+
+### Sales Header filtrirano
+get {{url}}/{{company}}/salesInvoices?$filter=number eq '1160'
+{{auth}}
+
+
+
+### Create Sales Header
+POST {{url}}/{{company}}/salesInvoices
+{{auth}}
+Content-Type: application/json;
+
+{
+    "customerNumber": "C00830"
+}
+
+### Get my Created Sales Header (Take id from return message)
+GET {{url}}/{{company}}/salesInvoices(07973298-8986-ed11-a43a-91838a3961ff)
+{{auth}}
+
+### Get Sales Lines
+GET {{url}}/{{company}}/salesInvoices(07973298-8986-ed11-a43a-91838a3961ff)/salesInvoiceLines
+{{auth}}
+
+### Get Sales Invoice
+GET {{url}}/{{company}}/salesInvoices?$filter=number eq '103232'
+{{auth}}
+
+### Create Sales Lines
+POST {{url}}/{{company}}/salesInvoices(07973298-8986-ed11-a43a-91838a3961ff)/salesInvoiceLines
+{{auth}}
+Content-Type: application/json
+
+{
+"lineType": "Item",
+"description": "Next Girl",
+"unitOfMeasureCode": "PCS",
+"quantity": 3
+}
+
+### How to post invoice 
+POST {{url}}/{{company}}/salesInvoices(2752949d-e485-ed11-a43a-91838a3961ff)/Microsoft.NAV.post
+{{auth}}

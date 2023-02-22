@@ -1,0 +1,79 @@
+@url = https://bc-webshop.westeurope.cloudapp.azure.com:7048/bc/api/v2.0
+### staviti api 2
+@auth = Authorization: Basic Kety:uwW/XLw5L2+F1W+4LUVsoDVZas4h7qOltx7GxyGPkOs=
+
+@company = companies(fb33e5dd-3559-ed11-9567-000d3a398606)
+@toilet = https://ptsv2.com/t/ko3v2-1669812442/post
+
+### Get Companies
+get {{url}}/companies
+{{auth}}
+
+### Toilet
+get {{toilet}}
+{{auth}}
+
+### Get customers for Company
+get {{url}}/companies(fb33e5dd-3559-ed11-9567-000d3a398606)/customers
+{{auth}}
+
+
+
+### Get Customers
+get {{url}}/{{company}}/customers
+{{auth}}
+
+### Get Items
+get {{url}}/{{company}}/items
+{{auth}}
+
+
+### Get Item
+get {{url}}/{{company}}/items(6cd6e208-3659-ed11-9567-000d3a398606)
+{{auth}}
+
+### Get Item Category
+get {{url}}/companies(fb33e5dd-3559-ed11-9567-000d3a398606)/itemCategories
+{{auth}}
+
+
+### Insert Items
+post {{url}}/{{company}}/items
+{{auth}}
+Content-type: application/json
+
+{
+    "displayName": "Searching for",
+    "type": "Inventory",
+    "unitPrice": 34.95
+} 
+
+### Insert customer for Company
+post {{url}}/companies(fb33e5dd-3559-ed11-9567-000d3a398606)/customers
+{{auth}}
+Content-type: application/json
+
+{
+    "displayName": "Katarina2 demo",
+    "templateDisplayName": "CUSTOMER COMPANY"
+} 
+
+
+
+### Update Item
+patch {{url}}/{{company}}/items(f0c77f56-a570-ed11-a435-d2d93914f251)
+{{auth}}
+Content-type: application/json
+If-MAtch: *
+
+{
+  "unitPrice": 10.0
+ 
+}
+### Delete Item
+delete {{url}}/{{company}}/items(f0c77f56-a570-ed11-a435-d2d93914f251)
+{{auth}}
+
+### definition
+get https://bc-webshop.westeurope.cloudapp.azure.com:7048/bc/api/v2.0/$metadata#companies(fb33e5dd-3559-ed11-9567-000d3a398606)/customers
+{{auth}}

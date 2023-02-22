@@ -1,0 +1,32 @@
+{
+  "id": "bb79c6a8-b70a-4ec2-9e95-bec46e9584ff",
+  "name": "BookShop",
+  "publisher": "Katarina Kolakušić",
+  "version": "20.0.0.2022120801",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "21.0.0.0",
+  "idRanges": [
+    {
+      "from": 50350,
+      "to": 50400
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "10.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
